@@ -78,7 +78,16 @@
             var date = year + '-' + month + '-' + td;
             if (date >= ele.date) {
               if (date == ele.date) {
-                if (today.getHours() + ":" + today.getMinutes() >= ele.time) {
+                var H = today.getHours();
+                  if (H < 10) {
+                    H = "0" + H;
+                  }
+                  var M = today.getMinutes();
+                  if (M < 10) {
+                    M = "0" + M;
+                  }
+
+                if (H+ ":" + M >= ele.time) {
                   alert("task " + ele.task + " is being delted");
                   list2.splice(index, 1);
                   cnt -= 1;
@@ -373,7 +382,7 @@
                     <table class="table table-bordered table-hovertable-striped text-white">
                       <thead class="thead-dark">
                         <tr>
-                          <th colSpan="5" ><center>TASKS PENDING</center></th>
+                          <th colSpan="5" ><center>TASKS</center></th>
                         </tr>
                         <tr>
                           <th><center>TASK</center></th>
